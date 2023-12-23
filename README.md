@@ -1,6 +1,6 @@
 # las unicas modificaciones se hicieron en los archivos : 
 
-middlewares/error.handler.js : es donde esta la logica de los MID de error
+dependecias nuevas : npm i @hapi/boom
 
 
 services/product.service.js : generamos un erro simple "con no definir getTotal() "
