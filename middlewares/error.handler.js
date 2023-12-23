@@ -1,4 +1,3 @@
-
 //un MID que se encarga de capturar cualquier error y mostrat , deben tener los 4 parametros
 function logErrors(err,req,res,next){
   console.log('logErrors');// para indicar que está capturando errores.
