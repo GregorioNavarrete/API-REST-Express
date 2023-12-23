@@ -6,17 +6,29 @@ function logErrors(err,req,res,next){
 }
 
 
-function errorHandler(err,req,res,next){
-  //maneja los errores capturados por el middleware anterior o
-  // cualquier otro middleware de la cadena que haya producido un error
+function errorHandler(err,req,res,next){r
   console.log('errorHandler');
 
-  //responder con un status HTTP 500 (Internal Server Error) y envía un JSON
-  // con el mensaje y la pila de seguimiento (stack trace) del error al cliente
+
   res.status(500).json({
     message:err.message,
     stack:err.stack,
   });
 }
 
-module.exports={logErrors,errorHandler}
+//para identificar que el error es de tipo boom
+function boomErrorHandler(err,req,res,next){
+  if(err.isBoom){
+    //existe la propiedad isboom , q boom lo agrega al encontrar un error
+    const{output}=err;
+
+    //repondemos la peticion
+    //expreso el "status" y "json" de forma dinami con los metodos que viene del "err"
+    res.status(output.statusCode).json(output.payload);
+  }else{
+    //si no es de tipo boom, que valla por los siguiente MID de error
+    next(err);
+  }
+
+}
+module.exports={logErrors,errorHandler,boomErrorHandler}

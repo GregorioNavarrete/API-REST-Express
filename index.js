@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();// creamos la aplicacion
-const { logErrors,errorHandler } = require('./middlewares/error.handler');
+const { logErrors,errorHandler,boomErrorHandler } = require('./middlewares/error.handler');
 
 const routerApi = require('./routes/index');
 
@@ -21,11 +21,12 @@ app.get('/nueva-ruta', (req, res) => {
 
 
 // usamos el moduli definido como gestor de las rutas,
-// y le pasamos la aplicacion (lo mas inpotante )
+
 routerApi(app);
 
 // los MID de error, es necesario despues del routing
-app.use(logErrors);//tiene que ir antes xq tiene el next(), para ir al siguiente MID
+app.use(logErrors);
+app.use(boomErrorHandler)
 app.use(errorHandler);
 
 
