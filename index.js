@@ -3,9 +3,16 @@ const app = express();// creamos la aplicacion
 const { logErrors,errorHandler,boomErrorHandler } = require('./middlewares/error.handler');
 //const { validatorHandler } = require('./middlewares/validator.handler');
 
+const cors = require('cors');
+
 const routerApi = require('./routes/index');
 
+
+
+
 app.use(express.json());//para que pueda resibir info en JSON
+app.use(cors()); // lo usamos como un MID
+
 
 const puerto = 3000;
 
