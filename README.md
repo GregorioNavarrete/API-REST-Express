@@ -1,27 +1,14 @@
 # las unicas modificaciones se hicieron en los archivos : 
 
-dependecias nuevas : npm i @hapi/boom , documentacion  https://hapi.dev/module/boom/
+dependecias nuevas : npm i joi , documentacion  npm docs joi
 
 
-services/product.service.js : usamos los metodos de "boom" para indicar que errores puede tener, q la libreria nos dira el codigo
+services/product.service.js : no
 
-middlewares/error.handler.js : definimos el MID de "boomErrorHandler", para identificar que un error es de tipo boom
-
-
-index.js : llamamos a al MID de aplicacion en la posicion correcta  "boomErrorHandler"
+middlewares/validator.handler.js : definimos el MID para identificar los errores de balidacio nque pueden estar en los campos de req , lo pasamos a "data", si no cumple vaa un error bom
 
 
-Ejemplo : 
-  * si el cliente pide una producto que no esta registrado, nos aparecera
-  {
-	"statusCode": 404, 
-	"error": "Not Found",
-	"message": "product not found"
-  }
+index.js : no
 
-  * si el cliente pide una producto que esta bloquedo 
-  {
-	"statusCode": 409,
-	"error": "Conflict",
-	"message": "product is block"
-  }
+
+Ejemplo :no

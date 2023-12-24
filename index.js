@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();// creamos la aplicacion
 const { logErrors,errorHandler,boomErrorHandler } = require('./middlewares/error.handler');
+//const { validatorHandler } = require('./middlewares/validator.handler');
 
 const routerApi = require('./routes/index');
 
@@ -26,8 +27,10 @@ routerApi(app);
 
 // los MID de error, es necesario despues del routing
 app.use(logErrors);
-app.use(boomErrorHandler)
+app.use(boomErrorHandler);
 app.use(errorHandler);
+
+//app.use(validatorHandler); es de forma local
 
 
 
