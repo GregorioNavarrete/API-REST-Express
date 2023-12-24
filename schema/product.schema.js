@@ -2,23 +2,21 @@
 //para validar el datos q manda el FontEnd
 const Joi = require('joi');
 
-
-//hacemos esquemas para cada campo
-const id = Joi.string().uuid();//id es de tipo string y la valisacion
-const name = Joi.string().alphanum().min(3).max(15);//las caracterisitcas del campo
+const id = Joi.string().uuid();
+const name = Joi.string().min(3).max(15);
 const price = Joi.number().integer().min(10);
+const image = Joi.string().uri();
 
-
-//creamos el esquema para la creacion
 const createProductSchema = Joi.object({
-  //para la creacion
-  name: name.required(),// requeri el esquema definido para name, arriba !!!!!
+  name: name.required(),
   price: price.required(),
+  image: image.required()
 });
 
 const updateProductSchema = Joi.object({
   name: name,
   price: price,
+  image: image
 });
 
 const getProductSchema = Joi.object({
@@ -26,3 +24,4 @@ const getProductSchema = Joi.object({
 });
 
 module.exports = { createProductSchema, updateProductSchema, getProductSchema }
+
