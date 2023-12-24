@@ -17,7 +17,8 @@ index.js : llamaos como middleware , para habilitar a cualquier domimio para con
 * desde una cualquir pagina no pude llamar a la API 
  la pagina es  :
 
- 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,10 +34,10 @@ index.js : llamaos como middleware , para habilitar a cualquier domimio para con
             console.log(data);
         })
         
-        //await se utiliza para esperar a que la solicitud se complete y devuelva una respuesta.
-        // fetch() devuelve una promesa que resuelve en un objeto Response.
+        await se utiliza para esperar a que la solicitud se complete y devuelva una respuesta.
+        fetch() devuelve una promesa que resuelve en un objeto Response.
 
-        /*
+        
         sin CORS, por estar en puertos diferentes 
         outPut: 
         Failed to load resource: the server responded with a status of 404 (Not Found)
@@ -44,10 +45,11 @@ index.js : llamaos como middleware , para habilitar a cualquier domimio para con
         significa que el servidor no pudo encontrar el recurso que estabas intentando acceder.
          Esto puede deberse a varias razones, como que el recurso no exista, que el servidor esté 
          caído o que no tengas permiso para acceder a él.
-        */
+        
 
 
     </script>
 </body>
 </html>
+
 
